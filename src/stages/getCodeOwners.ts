@@ -31,7 +31,7 @@ export const getCodeOwners = async (
 
   try {
     dataCollector.info(
-        i18n('loadingCoverageFromFile', {
+        i18n('loadingCodeOwnersFromFile', {
             pathToCodeOwnersFile,
         })
     );
@@ -47,6 +47,8 @@ export const getCodeOwners = async (
       codeOwnersMap[team] ||= [];
       codeOwnersMap[team] = codeOwnersMap[team].concat(path);
     });
+
+    console.log(JSON.stringify(codeOwnersMap));
 
     return Object.keys(codeOwnersMap).map(key => {
       return {
