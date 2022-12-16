@@ -101,6 +101,7 @@ export const getOptions = async (): Promise<Options> => {
     const customTitle = getInput('custom-title');
     const coverageFile = getInput('coverage-file');
     const baseCoverageFile = getInput('base-coverage-file');
+    const codeOwnersDirectory = getInput('code-owners-directory');
     const prNumber: number | null = Number(
         getInput('prnumber') || context?.payload?.pull_request?.number
     );
@@ -132,6 +133,7 @@ export const getOptions = async (): Promise<Options> => {
             prNumber: prNumber || null,
             pullRequest,
             output,
+            codeOwnersDirectory
         })) as Options;
 
         return options;
