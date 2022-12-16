@@ -51,6 +51,9 @@ inputs:
         required: false
         description: What output should action produce? `comment` - add comment to PR, `report-markdown` - report markdown text in "outputs.report".
         default: comment
+    code-owners-directory:
+        required: false
+        description: Path to the CODEOWNERS directory
 outputs:
     report:
         description: Generated markdown report. Exists only if input option "output" is set to "report-markdown".
