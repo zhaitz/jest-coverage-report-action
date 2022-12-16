@@ -78,3 +78,4 @@ runs:
               INPUT_BASE-COVERAGE-FILE: ${{ inputs.base-coverage-file }}
               INPUT_PRNUMBER: ${{ inputs.prnumber }}
               INPUT_OUTPUT: ${{ inputs.output }}
+              INPUT_CODE-OWNERS-DIRECTORY: ${{ inputs.code-owners-directory }}
