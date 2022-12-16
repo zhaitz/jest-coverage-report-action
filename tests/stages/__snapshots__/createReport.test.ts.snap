@@ -141,20 +141,24 @@ Object {
 |                                                                           🟢                                                                           | Lines      | 80.65%     |      25/31      |
 
 
-| <p>Coverage for team-one</p><div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
-|                                                                                         🟢                                                                                         | Statements | 100%       |       4/4       |
-|                                                                                         🟢                                                                                         | Branches   | 100%       |       0/0       |
-|                                                                                         🟢                                                                                         | Functions  | 100%       |       2/2       |
-|                                                                                         🟢                                                                                         | Lines      | 100%       |       3/3       |
+<p>Coverage for team-one</p>
+
+| <div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
+|                                                                           🟢                                                                           | Statements | 100%       |       4/4       |
+|                                                                           🟢                                                                           | Branches   | 100%       |       0/0       |
+|                                                                           🟢                                                                           | Functions  | 100%       |       2/2       |
+|                                                                           🟢                                                                           | Lines      | 100%       |       3/3       |
 
 
-| <p>Coverage for team-two</p><div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
-|                                                                                         🟢                                                                                         | Statements | 100%       |      16/16      |
-|                                                                                         🟢                                                                                         | Branches   | 100%       |       6/6       |
-|                                                                                         🟢                                                                                         | Functions  | 100%       |       2/2       |
-|                                                                                         🟢                                                                                         | Lines      | 100%       |      16/16      |
+<p>Coverage for team-two</p>
+
+| <div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
+|                                                                           🟢                                                                           | Statements | 100%       |      16/16      |
+|                                                                           🟢                                                                           | Branches   | 100%       |       6/6       |
+|                                                                           🟢                                                                           | Functions  | 100%       |       2/2       |
+|                                                                           🟢                                                                           | Lines      | 100%       |      16/16      |
 
 
 ## Test suite run success

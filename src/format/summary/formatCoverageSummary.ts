@@ -12,28 +12,35 @@ export const formatCoverageSummary = (
     baseSummary: Array<CoverageSummary> | undefined,
     threshold: number | undefined,
     codeOwner?: CodeOwners
-): string =>
-    table(
-        [
+): string => {
+    const strings = [];
+
+    if (codeOwner) {
+        strings.push(`<p>Coverage for ${codeOwner.team}</p>`);
+    }
+
+    strings.push(
+        table(
             [
-                withExplanation(
-                    i18n('status'),
-                    i18n('statusExplanation'),
-                    codeOwner
-                ),
-                i18n('category'),
-                i18n('percentage'),
-                i18n('ratio'),
+                [
+                    withExplanation(i18n('status'), i18n('statusExplanation')),
+                    i18n('category'),
+                    i18n('percentage'),
+                    i18n('ratio'),
+                ],
+                ...headSummary.map((currSummary, index) => [
+                    getStatusOfPercents(currSummary.percentage, threshold),
+                    currSummary.title,
+                    formatPercentage(
+                        currSummary.percentage,
+                        baseSummary?.[index].percentage
+                    ),
+                    `${currSummary.covered}/${currSummary.total}`,
+                ]),
             ],
-            ...headSummary.map((currSummary, index) => [
-                getStatusOfPercents(currSummary.percentage, threshold),
-                currSummary.title,
-                formatPercentage(
-                    currSummary.percentage,
-                    baseSummary?.[index].percentage
-                ),
-                `${currSummary.covered}/${currSummary.total}`,
-            ]),
-        ],
-        { align: ['c', 'l', 'l', 'c'] }
+            { align: ['c', 'l', 'l', 'c'] }
+        )
     );
+
+    return strings.join('\n\n');
+};
