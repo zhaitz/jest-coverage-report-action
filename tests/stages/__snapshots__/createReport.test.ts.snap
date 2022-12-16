@@ -148,7 +148,8 @@ Object {
 |                                                                                         🟢                                                                                         | Functions  | 100%       |       2/2       |
 |                                                                                         🟢                                                                                         | Lines      | 100%       |       3/3       |
 
-,| <p>Coverage for team-two</p><div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
+
+| <p>Coverage for team-two</p><div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
 |                                                                                         🟢                                                                                         | Statements | 100%       |      16/16      |
 |                                                                                         🟢                                                                                         | Branches   | 100%       |       6/6       |
