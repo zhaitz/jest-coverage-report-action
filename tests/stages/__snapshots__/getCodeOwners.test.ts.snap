@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getCodeOwners should match snapshots 1`] = `undefined`;
+
+exports[`getCodeOwners should match snapshots 2`] = `
+Array [
+  Object {
+    "paths": Array [
+      "/jest/examples/typescript/sum.ts",
+      "/jest/examples/typescript/sum.js",
+    ],
+    "team": "team-one",
+  },
+  Object {
+    "paths": Array [
+      "/jest/examples/typescript/calc.ts",
+    ],
+    "team": "team-two",
+  },
+]
+`;

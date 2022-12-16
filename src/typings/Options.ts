@@ -30,6 +30,7 @@ export type Options = {
     prNumber: null | number;
     pullRequest: null | PullRequest;
     output: Array<OutputType>;
+    codeOwnersDirectory?: string;
 };
 
 const validAnnotationOptions: Array<AnnotationType> = [

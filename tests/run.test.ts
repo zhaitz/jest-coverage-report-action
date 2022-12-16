@@ -67,8 +67,7 @@ const standardReport = {
             ],
             endTime: 1627105769947,
             message: '',
-            name:
-                '/jest/examples/typescript/__tests__/CheckboxWithLabel-test.tsx',
+            name: '/jest/examples/typescript/__tests__/CheckboxWithLabel-test.tsx',
             startTime: 1627105769318,
             status: 'passed',
             summary: '',
@@ -310,9 +309,9 @@ describe('run', () => {
             ...dataCollector,
             get: jest.fn(),
         };
-        dataCollectorMock.get.mockReturnValue(({
+        dataCollectorMock.get.mockReturnValue({
             errors: [],
-        } as unknown) as CollectedData<JsonReport>);
+        } as unknown as CollectedData<JsonReport>);
         await run(dataCollectorMock);
         expect(setFailed).not.toBeCalled();
     });
