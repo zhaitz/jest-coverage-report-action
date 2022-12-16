@@ -207,6 +207,16 @@ describe('getOptions', () => {
         });
         expect(octokit.rest.pulls.get).not.toBeCalled();
     });
+
+    it('should return codeOwnersDirectory', async () => {
+        mockContext(pushContext);
+        mockInput({ ...options, ['code-owners-directory']: 'some-dir' });
+        expect(await getOptions()).toStrictEqual({
+            ...parsedOptions,
+            codeOwnersDirectory: 'some-dir',
+        });
+        expect(octokit.rest.pulls.get).not.toBeCalled();
+    });
 });
 
 describe('shouldInstallDeps', () => {

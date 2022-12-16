@@ -60,7 +60,8 @@
         "collectCoverage": "Collecting coverage",
         "parseCoverage": "Parsing coverage",
         "switchBack": "Switching back to original branch",
-        "setOutputs": "Setting outputs"
+        "setOutputs": "Setting outputs",
+        "getCodeOwners": "Code owners"
     },
     "thresholdFailures": {
         "percents": "{{ type }} coverage not met for {{ path }}: expected >={{ expected }}%, but got {{ coverage }}%",

@@ -73,6 +73,7 @@ const optionSchema = yup.object().shape({
     baseCoverageFile: yup.string(),
     prNumber: yup.number().nullable(),
     pullRequest: yup.object().nullable(),
+    codeOwnersDirectory: yup.string().nullable(),
     output: yup
         .array()
         .required()
