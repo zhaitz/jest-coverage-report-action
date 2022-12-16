@@ -10,6 +10,7 @@ import { generateCommitReport } from './report/generateCommitReport';
 import { generatePRReport } from './report/generatePRReport';
 import { checkThreshold } from './stages/checkThreshold';
 import { createReport } from './stages/createReport';
+import { getCodeOwners } from './stages/getCodeOwners';
 import { getCoverage } from './stages/getCoverage';
 import { switchBack, switchBranch } from './stages/switchBranch';
 import { JsonReport } from './typings/JsonReport';
@@ -128,11 +129,19 @@ export const run = async (
         }
     );
 
+    const [,codeOwners] = await runStage(
+        'getCodeOwners',
+        dataCollector,
+        async () => {
+            return getCodeOwners(dataCollector, options)
+        }
+    )
+
     const [isReportContentGenerated, summaryReport] = await runStage(
         'generateReportContent',
         dataCollector,
         async () => {
-            return createReport(dataCollector, options, thresholdResults ?? []);
+            return createReport(dataCollector, options, thresholdResults ?? [], codeOwners);
         }
     );
 

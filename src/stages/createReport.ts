@@ -1,5 +1,6 @@
 import { context } from '@actions/github';
 
+import { CodeOwners } from './../typings/CodeOwners';
 import { getReportTag } from '../constants/getReportTag';
 import { GITHUB_MESSAGE_SIZE_LIMIT } from '../constants/GITHUB_MESSAGE_SIZE_LIMIT';
 import { formatCoverage } from '../format/formatCoverage';
@@ -25,7 +26,8 @@ export const getSha = () =>
 export const createReport = (
     dataCollector: DataCollector<JsonReport>,
     options: Options,
-    thresholdResults: ThresholdResult[]
+    thresholdResults: ThresholdResult[],
+    codeOwners?: CodeOwners[] | undefined
 ): SummaryReport => {
     const { workingDirectory, customTitle } = options;
 
@@ -34,7 +36,22 @@ export const createReport = (
     const formattedErrors = formatErrors(errors);
 
     const formattedThresholdResults = formatThresholdResults(thresholdResults);
-    const coverage = formatCoverage(headReport, baseReport, undefined, false);
+    const totalCoverage = formatCoverage(
+        headReport,
+        baseReport,
+        undefined,
+        false
+    );
+    const coverageByTeam = (codeOwners || []).map((codeOwner) => {
+        return formatCoverage(
+            headReport,
+            baseReport,
+            undefined,
+            false,
+            codeOwner
+        );
+    });
+
     const runReport: TestRunReport = {
         title: i18n(headReport.success ? 'testsSuccess' : 'testsFail'),
         summary: getTestRunSummary(headReport),
@@ -46,7 +63,8 @@ export const createReport = (
         body: [
             formattedErrors,
             formattedThresholdResults,
-            coverage,
+            totalCoverage,
+            coverageByTeam,
             formattedReport,
         ].join('\n'),
         dir: workingDirectory || '',

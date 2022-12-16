@@ -5,8 +5,13 @@ import { JsonReport } from '../../src/typings/JsonReport';
 import { Options } from '../../src/typings/Options';
 import { createDataCollector } from '../../src/utils/DataCollector';
 import report from '../mock-data/jsonReport.json';
+import {readFile} from 'fs-extra';
 
 const { mockContext, clearContextMock } = all as any;
+
+const clearMocks = () => {
+    (readFile as jest.Mock<any, any>).mockClear();
+  };
 
 const DEFAULT_OPTIONS: Options = {
     token: '',
@@ -53,6 +58,32 @@ describe('createReport', () => {
                     customTitle: 'Custom title with directory - {{ dir }}',
                 },
                 []
+            )
+        ).toMatchSnapshot();
+
+        expect(
+            await createReport(
+                dataCollector,
+                {
+                    ...DEFAULT_OPTIONS,
+                    codeOwnersDirectory: 'custom directory',
+                },
+                [],
+                [
+                    {
+                        "paths": [
+                            "/jest/examples/typescript/sum.ts",
+                            "/jest/examples/typescript/sum.js",
+                          ],
+                          "team": "team-one",
+                    },
+                    {
+                        "paths": [
+                            "/jest/examples/typescript/calc.ts",
+                          ],
+                        "team": "team-two",
+                    }
+                ]
             )
         ).toMatchSnapshot();
 

@@ -1,3 +1,4 @@
+import { CodeOwners } from './../typings/CodeOwners';
 import { formatCoverageDetails } from './details/formatCoverageDetails';
 import { formatCoverageSummary } from './summary/formatCoverageSummary';
 import { CoverageDetailsMap, CoverageSummary } from '../typings/Coverage';
@@ -9,10 +10,11 @@ export const getFormattedCoverage = (
     headDetails: CoverageDetailsMap,
     baseDetails: CoverageDetailsMap | undefined,
     threshold: number | undefined,
-    hideDetails: boolean | undefined
+    hideDetails: boolean | undefined,
+    codeOwner?: CodeOwners,
 ): string =>
     [
-        formatCoverageSummary(headSummary, baseSummary, threshold),
+        formatCoverageSummary(headSummary, baseSummary, threshold, codeOwner),
         !hideDetails
             ? formatCoverageDetails(headDetails, baseDetails, threshold)
             : `> ${i18n('detailsHidden')}`,

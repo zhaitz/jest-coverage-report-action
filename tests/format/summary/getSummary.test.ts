@@ -14,4 +14,21 @@ describe('getSummary', () => {
             percentage: 100,
         });
     });
+
+    it('should calculate summary with codeowners', () => {
+        const counter = jest.fn(() => 1);
+
+        expect(
+            getSummary(coverageMap, counter, counter, 'Title', {
+                team: 'testing',
+                paths: ['/jest/examples/typescript/CheckboxWithLabel.tsx'],
+            })
+        ).toStrictEqual({
+            title: 'Title',
+            total: 1,
+            covered: 1,
+            percentage: 100,
+            team: 'testing',
+        });
+    });
 });

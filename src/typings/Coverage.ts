@@ -13,4 +13,5 @@ export type CoverageSummary = {
     covered: number;
     total: number;
     percentage: number;
+    team?: string;
 };

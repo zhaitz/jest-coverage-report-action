@@ -110,5 +110,6 @@
     "newFilesCoverage": "Show new covered files :hatching_chick:",
     "decreasedCoverageFiles": "Show files with reduced coverage :small_red_triangle_down:",
     "baseCoverage": "Base coverage is: ",
-    "loadingCoverageFromFile": "Loading code coverage from file: {{ pathToCoverageFile }}"
+    "loadingCoverageFromFile": "Loading code coverage from file: {{ pathToCoverageFile }}",
+    "loadingCodeOwnersFromFile": "Loading code owners from file: {{ pathToCodeOwnersFile }}"
 }
