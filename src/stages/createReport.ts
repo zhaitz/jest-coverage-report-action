@@ -84,12 +84,24 @@ export const createReport = (
             undefined,
             true
         );
+        const recudedCoverageByTeam = (codeOwners || [])
+            .map((codeOwner) => {
+                return formatCoverage(
+                    headReport,
+                    baseReport,
+                    undefined,
+                    true,
+                    codeOwner
+                );
+            })
+            .join('\n');
 
         templateText = insertArgs(template, {
             body: [
                 formattedErrors,
                 formattedThresholdResults,
                 reducedCoverage,
+                recudedCoverageByTeam,
                 formattedReport,
             ].join('\n'),
             dir: workingDirectory || '',
