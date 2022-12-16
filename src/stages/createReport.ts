@@ -42,15 +42,17 @@ export const createReport = (
         undefined,
         false
     );
-    const coverageByTeam = (codeOwners || []).map((codeOwner) => {
-        return formatCoverage(
-            headReport,
-            baseReport,
-            undefined,
-            false,
-            codeOwner
-        );
-    });
+    const coverageByTeam = (codeOwners || [])
+        .map((codeOwner) => {
+            return formatCoverage(
+                headReport,
+                baseReport,
+                undefined,
+                false,
+                codeOwner
+            );
+        })
+        .join('\n');
 
     const runReport: TestRunReport = {
         title: i18n(headReport.success ? 'testsSuccess' : 'testsFail'),
