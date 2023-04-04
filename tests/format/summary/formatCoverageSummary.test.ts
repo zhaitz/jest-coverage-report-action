@@ -5,20 +5,24 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 23,
-                        percentage: 76.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 23,
+                            percentage: 76.67,
+                        },
+                    ],
                 ],
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 15,
-                        percentage: 50,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 15,
+                            percentage: 50,
+                        },
+                    ],
                 ],
                 70
             )
@@ -27,20 +31,24 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 23,
-                        percentage: 76.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 23,
+                            percentage: 76.67,
+                        },
+                    ],
                 ],
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 29,
-                        percentage: 96.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 29,
+                            percentage: 96.67,
+                        },
+                    ],
                 ],
                 70
             )
@@ -51,20 +59,24 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 23,
-                        percentage: 76.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 23,
+                            percentage: 76.67,
+                        },
+                    ],
                 ],
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 15,
-                        percentage: 50,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 15,
+                            percentage: 50,
+                        },
+                    ],
                 ],
                 70
             )
@@ -73,20 +85,24 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 23,
-                        percentage: 76.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 23,
+                            percentage: 76.67,
+                        },
+                    ],
                 ],
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 29,
-                        percentage: 96.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 29,
+                            percentage: 96.67,
+                        },
+                    ],
                 ],
                 80
             )
@@ -97,12 +113,14 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 23,
-                        percentage: 76.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 23,
+                            percentage: 76.67,
+                        },
+                    ],
                 ],
                 undefined,
                 90
@@ -112,12 +130,14 @@ describe('formatCoverageSummary', () => {
         expect(
             formatCoverageSummary(
                 [
-                    {
-                        title: 'Statements',
-                        total: 30,
-                        covered: 29,
-                        percentage: 96.67,
-                    },
+                    [
+                        {
+                            title: 'Statements',
+                            total: 30,
+                            covered: 29,
+                            percentage: 96.67,
+                        },
+                    ],
                 ],
                 undefined,
                 90

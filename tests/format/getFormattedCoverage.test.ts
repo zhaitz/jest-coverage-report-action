@@ -7,7 +7,7 @@ describe('getFormattedCoverage', () => {
     it('should match snapshots', () => {
         expect(
             getFormattedCoverage(
-                parseSummary(jsonReport),
+                [parseSummary(jsonReport)],
                 undefined,
                 parseDetails(jsonReport),
                 undefined,

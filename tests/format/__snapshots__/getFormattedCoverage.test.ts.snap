@@ -1,12 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`getFormattedCoverage should match snapshots 1`] = `
-"| <div title=\\"Status of coverage:&#10; 🟢 - ok&#10; 🟡 - slightly more than threshold&#10; 🔴 - under the threshold\\">St.<sup>:grey_question:</sup></div> | Category   | Percentage | Covered / Total |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :--------- | :--------- | :-------------: |
-|                                                                           🟢                                                                           | Statements | 81.82%     |      27/33      |
-|                                                                           🟢                                                                           | Branches   | 100%       |       8/8       |
-|                                                                           🟡                                                                           | Functions  | 63.64%     |       7/11      |
-|                                                                           🟢                                                                           | Lines      | 80.65%     |      25/31      |
+"| Team  | Statements covered | Branches Covered | Functions covered | Lines Covered     |
+| ----- | ------------------ | ---------------- | ----------------- | ----------------- |
+| Total | 27/33 (81.82% 🟢)  | 8/8 (100% 🟢)    | 7/11 (63.64% 🟡)  | 25/31 (80.65% 🟢) |
 
 "
 `;

@@ -5,16 +5,15 @@ import { CoverageDetailsMap, CoverageSummary } from '../typings/Coverage';
 import { i18n } from '../utils/i18n';
 
 export const getFormattedCoverage = (
-    headSummary: Array<CoverageSummary>,
-    baseSummary: Array<CoverageSummary> | undefined,
+    headSummary: Array<Array<CoverageSummary>>,
+    baseSummary: Array<Array<CoverageSummary>> | undefined,
     headDetails: CoverageDetailsMap,
     baseDetails: CoverageDetailsMap | undefined,
     threshold: number | undefined,
-    hideDetails: boolean | undefined,
-    codeOwner?: CodeOwners,
+    hideDetails: boolean | undefined
 ): string =>
     [
-        formatCoverageSummary(headSummary, baseSummary, threshold, codeOwner),
+        formatCoverageSummary(headSummary, baseSummary, threshold),
         !hideDetails
             ? formatCoverageDetails(headDetails, baseDetails, threshold)
             : `> ${i18n('detailsHidden')}`,

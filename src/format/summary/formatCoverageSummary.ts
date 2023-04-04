@@ -1,45 +1,79 @@
 import table from 'markdown-table';
 
-import { CodeOwners } from './../../typings/CodeOwners';
 import { CoverageSummary } from '../../typings/Coverage';
 import { formatPercentage } from '../../utils/formatPercentage';
 import { getStatusOfPercents } from '../../utils/getStatusOfPercents';
-import { i18n } from '../../utils/i18n';
-import { withExplanation } from '../../utils/withExplanation';
 
 export const formatCoverageSummary = (
-    headSummary: Array<CoverageSummary>,
-    baseSummary: Array<CoverageSummary> | undefined,
-    threshold: number | undefined,
-    codeOwner?: CodeOwners
+    headSummary: Array<Array<CoverageSummary>>,
+    baseSummary: Array<Array<CoverageSummary>> | undefined,
+    threshold: number | undefined
 ): string => {
     const strings = [];
 
-    if (codeOwner) {
-        strings.push(`<p>Coverage for ${codeOwner.team}</p>`);
+    const summaryByTeam: Record<string, Record<string, CoverageSummary>> = {};
+    headSummary.forEach((coverageSummaryArray) => {
+        coverageSummaryArray.forEach((currSummary) => {
+            const team = currSummary.team || 'Total';
+
+            summaryByTeam[team] ||= { [currSummary.title]: currSummary };
+            summaryByTeam[team][currSummary.title] = currSummary;
+        });
+    });
+
+    const baseSummaryByTeam: Record<
+        string,
+        Record<string, CoverageSummary>
+    > = {};
+
+    if (baseSummary) {
+        baseSummary.forEach((coverageSummaryArray) => {
+            coverageSummaryArray.forEach((currSummary) => {
+                const team = currSummary.team || 'Total';
+
+                summaryByTeam[team] ||= { [currSummary.title]: currSummary };
+                summaryByTeam[team][currSummary.title] = currSummary;
+            });
+        });
     }
 
+    const blahTwo = Object.keys(summaryByTeam).map((team) => {
+        const stringForTeam = [];
+        stringForTeam.push(team);
+
+        Object.values(summaryByTeam[team]).forEach((summary, index) => {
+            const breakdown = `${summary.covered}/${summary.total}`;
+
+            const breakdownParenthesis = [];
+            breakdownParenthesis.push(
+                formatPercentage(
+                    summary.percentage,
+                    baseSummaryByTeam[team]?.[index].percentage
+                )
+            );
+            breakdownParenthesis.push(
+                getStatusOfPercents(summary.percentage, threshold)
+            );
+
+            stringForTeam.push(
+                `${breakdown} (${breakdownParenthesis.join(' ')})`
+            );
+        });
+
+        return stringForTeam;
+    });
+
     strings.push(
-        table(
+        table([
             [
-                [
-                    withExplanation(i18n('status'), i18n('statusExplanation')),
-                    i18n('category'),
-                    i18n('percentage'),
-                    i18n('ratio'),
-                ],
-                ...headSummary.map((currSummary, index) => [
-                    getStatusOfPercents(currSummary.percentage, threshold),
-                    currSummary.title,
-                    formatPercentage(
-                        currSummary.percentage,
-                        baseSummary?.[index].percentage
-                    ),
-                    `${currSummary.covered}/${currSummary.total}`,
-                ]),
+                'Team',
+                'Statements covered',
+                'Branches Covered',
+                'Functions covered',
+                'Lines Covered',
             ],
-            { align: ['c', 'l', 'l', 'c'] }
-        )
+            ...blahTwo,
+        ])
     );
 
     return strings.join('\n\n');

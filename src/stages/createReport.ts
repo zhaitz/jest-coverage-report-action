@@ -40,19 +40,9 @@ export const createReport = (
         headReport,
         baseReport,
         undefined,
-        false
+        false,
+        codeOwners
     );
-    const coverageByTeam = (codeOwners || [])
-        .map((codeOwner) => {
-            return formatCoverage(
-                headReport,
-                baseReport,
-                undefined,
-                false,
-                codeOwner
-            );
-        })
-        .join('\n');
 
     const runReport: TestRunReport = {
         title: i18n(headReport.success ? 'testsSuccess' : 'testsFail'),
@@ -66,7 +56,6 @@ export const createReport = (
             formattedErrors,
             formattedThresholdResults,
             totalCoverage,
-            coverageByTeam,
             formattedReport,
         ].join('\n'),
         dir: workingDirectory || '',
@@ -82,26 +71,15 @@ export const createReport = (
             headReport,
             baseReport,
             undefined,
-            true
+            true,
+            codeOwners
         );
-        const recudedCoverageByTeam = (codeOwners || [])
-            .map((codeOwner) => {
-                return formatCoverage(
-                    headReport,
-                    baseReport,
-                    undefined,
-                    true,
-                    codeOwner
-                );
-            })
-            .join('\n');
 
         templateText = insertArgs(template, {
             body: [
                 formattedErrors,
                 formattedThresholdResults,
                 reducedCoverage,
-                recudedCoverageByTeam,
                 formattedReport,
             ].join('\n'),
             dir: workingDirectory || '',
