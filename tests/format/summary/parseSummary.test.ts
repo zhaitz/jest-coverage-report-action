@@ -8,12 +8,10 @@ describe('parseSummary', () => {
 
     it('should parse summary from mock data with team', () => {
         expect(
-            parseSummary(report, [
-                {
-                    team: 'testing',
-                    paths: ['/jest/examples/typescript/CheckboxWithLabel.tsx'],
-                },
-            ])
+            parseSummary(report, {
+                team: 'testing',
+                paths: ['/jest/examples/typescript/CheckboxWithLabel.tsx'],
+            })
         ).toMatchSnapshot();
     });
 });
