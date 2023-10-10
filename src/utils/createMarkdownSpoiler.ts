@@ -7,10 +7,8 @@ export const createMarkdownSpoiler = ({
     body,
     summary,
 }: SpoilerConfig): string => `
-<details><summary>${summary}</summary>
+## ${summary}
 <br/>
 
 ${body}
-
-</details>
 `;

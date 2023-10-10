@@ -108,8 +108,8 @@
     },
     "detailsHidden": ":warning: Details were not displayed: the report size has exceeded the limit.",
     "summaryTitle": "Coverage report {{ dir }}",
-    "newFilesCoverage": "Show new covered files :hatching_chick:",
-    "decreasedCoverageFiles": "Show files with reduced coverage :small_red_triangle_down:",
+    "newFilesCoverage": "Newly covered files :hatching_chick:",
+    "decreasedCoverageFiles": "Files with reduced coverage :small_red_triangle_down:",
     "baseCoverage": "Base coverage is: ",
     "loadingCoverageFromFile": "Loading code coverage from file: {{ pathToCoverageFile }}",
     "loadingCodeOwnersFromFile": "Loading code owners from file: {{ pathToCodeOwnersFile }}"
